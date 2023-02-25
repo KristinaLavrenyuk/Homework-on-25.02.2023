@@ -1,0 +1,46 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct
+{
+    int quaLifes;
+    int tailLength;
+    int age;
+    char gender;
+    int krutost;
+    string result;
+
+    void CountKrutost()
+    {
+        krutost = tailLength * age / quaLifes;
+    }
+    string Output()
+    {
+        if (krutost > 10) result = "WOW! murr-meow";
+        else if (krutost >= 5 && krutost <= 10) result = "Murr";
+        else result = "Go pump up, idiot";
+        return result;
+    }
+} cat;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    cout << "Введите характеристику кота: " << endl;
+    cout << "Введите количество жизней - ";
+    cin >> cat.quaLifes;
+    cout << endl << "Введите длину хвоста - ";
+    cin >> cat.tailLength;
+    cout << endl << "Введите возраст кота - ";
+    cin >> cat.age;
+    cout << endl << "Введите пол кота (g or m) - ";
+    cin >> cat.gender;
+
+    cat.CountKrutost();
+
+    cout << endl << cat.Output() << endl;
+    system("pause");
+}
